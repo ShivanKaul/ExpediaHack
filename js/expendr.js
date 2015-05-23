@@ -9,8 +9,7 @@ function call_expedia() {
 
 	var queryURL = "http://terminal2.expedia.com/x/geo/features?within=" + radius + "km&lng=" + long + "&lat=" + lat + "&type=point_of_interest&apikey=" + key
 
-	$(document).ready(function(){
-		$.ajax({
+	$.ajax({
 			url: queryURL,
 			dataType: "json",
 			statusCode: {
@@ -48,9 +47,6 @@ function call_expedia() {
                             }
 
                         })
-})
 }
-
-call_expedia()
 
 

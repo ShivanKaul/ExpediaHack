@@ -14,10 +14,11 @@ function set_location(position) {
 	console.log("setting location")
 	latitude = position.coords.latitude;
 	longitude = position.coords.longitude;
+	console.log(latitude, longitude)
 }
 
 function location_error(err){
 	add_error("Error location self", err.message); 
 }
 
-get_location()
+$(document).ready(get_location)
