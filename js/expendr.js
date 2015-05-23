@@ -1,3 +1,4 @@
+var poi_list = [];
 function call_expedia() {
 	// Get top 10 places to go
 	var radius = 15
@@ -36,6 +37,7 @@ function call_expedia() {
                                 	console.log(map)
                                 	document.getElementById("loading").innerHTML = "Found you!"
                                 	document.getElementById("sugg").innerHTML = "You should check out: " + sugg
+					poi_list = map
                                 }
                                 else {
                                 	document.write("Couldn't find any results! You live in a boring town, sorry.")
