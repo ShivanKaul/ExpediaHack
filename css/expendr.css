@@ -2,7 +2,6 @@ body {
 	margin-top: 5%;
 	margin-bottom: 2%;
 	text-align: center;
-	background-color: #F5F6CE;
 }
 
 
@@ -23,6 +22,11 @@ h2.place-name {
 
 #place_of_interest img {
 	margin-top: 50px;
+	max-height: 400px;
+}
+
+#place_of_interest a {
+	color: grey;
 }
 
 footer {
