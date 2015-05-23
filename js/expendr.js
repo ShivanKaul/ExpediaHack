@@ -39,6 +39,7 @@ function call_expedia() {
                                 	elem.parentNode.removeChild(elem);
                                 	document.getElementById("loading").innerHTML = "You should check out: " // + sugg
                                 	poi_list = map
+					set_poi(poi_list[0])
                                 }
                                 else {
                                 	document.write("Couldn't find any results! You live in a boring town, sorry.")
