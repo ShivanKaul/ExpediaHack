@@ -5,3 +5,9 @@
 #sugg {
 	font-family: 'Georgia', sans-serif;
 }
+
+#helper-loading {
+	margin:15% auto;
+    width:200px;
+    height:200px;
+}
