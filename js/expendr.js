@@ -18,8 +18,9 @@ function call_expedia() {
 			},
 			success: function (queryResult) {
                                 // get array of all results
+                                console.log("Inside AJAX call")
                                 var results = queryResult;
-                                var numResults = queryResult.length;
+                                var numResults = results.length;
                                 var map = []
                                 if (numResults > 0) {
                                 	var bound = Math.min(10, numResults); // get either first ten or however many we got if below 10
@@ -27,11 +28,25 @@ function call_expedia() {
                                 		var tuple = results[i]
                                 		var placeName = tuple.name
                                 		var placeCoords = tuple.position.coordinates
+                                		console.log(placeName, placeCoords)
                                 		map = map + {name : placeName, coords : placeCoords}
                                 	}
-                                	var result = getTitle(numResults, results)
-                                	var title = result[0]
-                                	var randomNum = result[1]
-                                	var link = results[randomNum].url;
+                                	document.getElementById("init").innerHTML = map
+                                }
+                                else {
+                                	document.write("Couldn't find any results! You live in a boring town, sorry.")
+                                }
+                            },
+                            error: function(statusCode, errorThrown) {
+                            	if (statusCode.status == 0) {
+                            		document.write("Whoops, something went wrong in the AJAX request.")
+                            	}
+                            }
+
+                        })
+})
+}
+
+call_expedia()
 
 
