@@ -37,11 +37,35 @@ function is_prev_poi(){
 	return (poi_list > 0);
 }
 
-document.onkeyup = function(e) {
+$(document).keyup(function(e) {
 	e = e||window.event;
 	if (e.keyCode == "37") { //Left Arrow
 		set_poi(prev_poi());
 	} else if (e.keyCode == "39") { //Right Arrow
 		set_poi(next_poi());
 	}
-};
+});
+
+function set_footer_offset() {
+	var f = $("footer");
+	if (window.innerHeight >= $(document).height()) {
+		f.css("position", "fixed");
+		f.css("bottom", "2%");
+		f.css("left", "50%");
+		f.css("transform", "translateX(-50%)");
+	} else {
+		f.css("position", "relative");
+		f.css("bottom", "auto");
+		f.css("left", "auto");
+		f.css("transform", "none");
+	}
+}
+
+$(window).resize(function() {
+	set_footer_offset();
+});
+
+$(document).ready(function(){
+	set_footer_offset();
+	get_location();
+});

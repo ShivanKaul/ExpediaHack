@@ -1,6 +1,6 @@
 body {
 	margin-top: 5%;
-	margin-bottom: 5%;
+	margin-bottom: 2%;
 	text-align: center;
 }
 
@@ -19,14 +19,11 @@ h2.place-name {
 	font-family: 'Lato', sans-serif;
 }
 
-#bottom { 
-	position: fixed;
-	bottom: 2%;
-	left: 50%;
-	transform: translateX(-50%);
+footer {
+	padding-top: 25px;
 }
 
-a.down {
+footer a {
 	font-weight: bold;
 }
 

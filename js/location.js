@@ -21,5 +21,3 @@ function set_location(position) {
 function location_error(err){
 	add_error("Error location self", err.message); 
 }
-
-$(document).ready(get_location)
