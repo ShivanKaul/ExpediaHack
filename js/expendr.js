@@ -35,9 +35,8 @@ function call_expedia() {
                                 	}
                                 	var sugg = map[0].name
                                 	console.log(map)
-                                	document.getElementById("loading").innerHTML = "Found you!"
-                                	document.getElementById("sugg").innerHTML = "You should check out: " + sugg
-					poi_list = map
+                                	document.getElementById("loading").innerHTML = "You should check out: " + sugg
+                                	poi_list = map
                                 }
                                 else {
                                 	document.write("Couldn't find any results! You live in a boring town, sorry.")
