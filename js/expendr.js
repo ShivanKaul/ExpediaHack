@@ -2,8 +2,10 @@ function call_expedia() {
 	// Get top 10 places to go
 	var radius = 15
 	var key = API_KEY
-	var long = -73.5703288
-	var lat = 45.5119172
+	var long = longitude
+	var lat = latitude
+	console.log(long)
+	console.log(lat)
 
 	var queryURL = "http://terminal2.expedia.com/x/geo/features?within=" + radius + "km&lng=" + long + "&lat=" + lat + "&type=point_of_interest&apikey=" + key
 
@@ -29,9 +31,11 @@ function call_expedia() {
                                 		var placeName = tuple.name
                                 		var placeCoords = tuple.position.coordinates
                                 		console.log(placeName, placeCoords)
-                                		map = map + {name : placeName, coords : placeCoords}
+                                		map.push({name : placeName, coords : placeCoords})
                                 	}
-                                	document.getElementById("init").innerHTML = map
+                                	var sugg = map[0]
+                                	console.log(map)
+                                	document.getElementById("sugg").innerHTML = "You should check out: " + sugg
                                 }
                                 else {
                                 	document.write("Couldn't find any results! You live in a boring town, sorry.")
