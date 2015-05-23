@@ -25,8 +25,8 @@ function call_expedia() {
                                 var numResults = results.length;
                                 var map = []
                                 if (numResults > 0) {
-                                	var bound = Math.min(10, numResults); // get either first ten or however many we got if below 10
-                                	for (i = 0; i <= bound; i++) {
+                                	var bound = Math.min(25, numResults); // get either first ten or however many we got if below 10
+                                	for (i = 0; i < bound; i++) {
                                 		var tuple = results[i]
                                 		var placeName = tuple.name
                                 		var placeCoords = tuple.position.coordinates
@@ -41,6 +41,7 @@ function call_expedia() {
                                 	document.getElementById("loading").innerHTML = "You should check out: "
                                 	$("#place_of_interest .place-name").html(sugg)
                                 	poi_list = map
+					set_poi(poi_list[0])
                                 }
                                 else {
                                 	document.write("Couldn't find any results! You live in a boring town, sorry.")
