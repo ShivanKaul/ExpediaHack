@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 var poi_index = 0;
+var current_poi = null;
+var new_poi = false;
 
 function set_poi(poi) {
 	var name = trim(poi.name)
@@ -22,6 +24,22 @@ function set_poi(poi) {
 	$("#place_of_interest .place-name").html(name)
 	var search = "http://www.yelp.ca/search?find_desc=" + url
 	$("#link-yelp").attr("href", search)
+	current_poi = poi;
+	new_poi = true;
+	setInterval('update_poi_image()', 500);
+}
+
+function update_poi_image() {
+	if (new_poi && current_poi){
+		if(current_poi.imageURL){
+			$("#place_of_interest img").attr("src", current_poi.imageURL);
+			$("#place_of_interest img").prop("hidden", false);
+			new_poi = false;
+		} else {
+			$("#place_of_interest img").prop("hidden", true);
+		}
+		set_footer_offset();
+	}
 }
 
 function next_poi(){
