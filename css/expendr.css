@@ -3,7 +3,7 @@
 	font-size: 3em;
 	position: fixed;
 	left: 50%;
-    transform: translateX(-50%);
+	transform: translateX(-50%);
 }
 
 #sugg {
@@ -12,6 +12,17 @@
 
 #helper-loading {
 	margin: 15% auto;
-    width: 90%;
-    height: 200px;
+	width: 90%;
+	height: 200px;
+}
+
+#bottom { 
+	position: fixed;
+	bottom: 2%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+a.down {
+	font-weight: bold;
 }
