@@ -30,8 +30,9 @@ function call_expedia() {
                                 		var tuple = results[i]
                                 		var placeName = tuple.name
                                 		var placeCoords = tuple.position.coordinates
+                                		map.push({name : placeName, coords : placeCoords, imageURL : ""})
                                 		console.log(placeName, placeCoords)
-                                		map.push({name : placeName, coords : placeCoords})
+
                                 	}
                                 	var sugg = map[0].name
                                 	sugg = trim(sugg)
@@ -39,8 +40,25 @@ function call_expedia() {
                                 	var elem = document.getElementById('wrapper-spinner');
                                 	elem.parentNode.removeChild(elem);
                                 	document.getElementById("loading").innerHTML = "You should check out: "
-                                	$("#place_of_interest .place-name").html(sugg)
                                 	poi_list = map
+                                	console.log("map is " + map)
+                                	// var imageLinks = new Array(bound)
+                                	// var promises = []
+                                	for (i = 0; i < poi_list.length; i++) {
+                                		var name = poi_list[i].name
+                                		var url = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + name
+                                		$.ajax({
+                                			url: url,
+                                			dataType: "jsonp",
+                                			success: function (queryResult) {
+                                				var result = queryResult.responseData.results[0]
+                                				var localUrl = result.url
+                                				console.log("inside nested call")
+                                				console.log(poi_list[i])
+                                				poi_list[i].imageURL = localUrl
+                                			}
+                                		})
+                                	}
                                 	set_poi(poi_list[0])
                                 }
                                 else {
@@ -61,6 +79,39 @@ function trim(name) {
 		var newName = name.substring(0, name.indexOf(","));
 	}
 	return newName
+}
+
+// function getImageURL(name) {
+// 	// return only once the AJAX request gets processed
+// 	url = ""
+// 	name = encodeURIComponent(name);
+// 	queryURL = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + name
+// 	$.when(ajaxRequest()).done(function(status) {
+// 		console.log("url is " + url)
+// 	})
+// 	return url
+// }
+function ajaxRequest(queryURL) {
+	return $.ajax({
+		url: queryURL,
+		dataType: "jsonp",
+		statusCode: {
+			502: function () {
+				console.log("Error 502 thrown.")
+			}
+		},
+		success: function (queryResult) {
+			console.log("inside image search")
+			var result = queryResult.responseData.results[0];
+			var localUrl = result.url
+			url = localUrl
+		},
+		error: function(statusCode, errorThrown) {
+			if (statusCode.status == 0) {
+				document.write("Whoops, something went wrong in the image search AJAX request.")
+			}
+		}
+	})
 }
 
 

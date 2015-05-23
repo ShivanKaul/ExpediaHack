@@ -4,7 +4,6 @@ function set_poi(poi) {
 	$("#place_of_interest .place-name").html(trim(poi.name))
 }
 
-
 function next_poi(){
 	if (poi_list.length == 0) {
 		return null;
