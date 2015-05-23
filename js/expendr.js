@@ -45,19 +45,7 @@ function call_expedia() {
                                 	// var imageLinks = new Array(bound)
                                 	// var promises = []
                                 	for (i = 0; i < poi_list.length; i++) {
-                                		var name = poi_list[i].name
-                                		var url = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + name
-                                		$.ajax({
-                                			url: url,
-                                			dataType: "jsonp",
-                                			success: function (queryResult) {
-                                				var result = queryResult.responseData.results[0]
-                                				var localUrl = result.url
-                                				console.log("inside nested call")
-                                				console.log(poi_list[i])
-                                				poi_list[i].imageURL = localUrl
-                                			}
-                                		})
+                                		get_poi_photo(i);
                                 	}
                                 	set_poi(poi_list[0])
                                 }
@@ -73,6 +61,21 @@ function call_expedia() {
 
                         })
 }
+
+function get_poi_photo(index){
+	var name = poi_list[index].name
+	var url = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + name
+	$.ajax({
+		url: url,
+		dataType: "jsonp",
+		success: function (queryResult) {
+			var result = queryResult.responseData.results[0]
+			var localUrl = result.url
+			poi_list[index].imageURL = localUrl
+		}
+	})
+}
+
 
 function trim(name) {
 	if (name.indexOf(",") > -1) {
