@@ -35,6 +35,8 @@ function call_expedia() {
                                 	}
                                 	var sugg = map[0].name
                                 	console.log(map)
+                                	var elem = document.getElementById('wrapper-spinner');
+                                	elem.parentNode.removeChild(elem);
                                 	document.getElementById("loading").innerHTML = "You should check out: " // + sugg
                                 	poi_list = map
                                 }
