@@ -34,10 +34,12 @@ function call_expedia() {
                                 		map.push({name : placeName, coords : placeCoords})
                                 	}
                                 	var sugg = map[0].name
+                                	sugg = trim(sugg)
                                 	console.log(map)
                                 	var elem = document.getElementById('wrapper-spinner');
                                 	elem.parentNode.removeChild(elem);
-                                	document.getElementById("loading").innerHTML = "You should check out: " // + sugg
+                                	document.getElementById("loading").innerHTML = "You should check out: "
+                                	$("#place_of_interest .place-name").html(sugg)
                                 	poi_list = map
                                 }
                                 else {
@@ -51,6 +53,13 @@ function call_expedia() {
                             }
 
                         })
+}
+
+function trim(name) {
+	if (name.indexOf(",") > -1) {
+		var newName = name.substring(0, name.indexOf(","));
+	}
+	return newName
 }
 
 

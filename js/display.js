@@ -1,7 +1,7 @@
 var poi_index = 0;
 
 function set_poi(poi) {
-	$("#place_of_interest .place-name").html(poi.name)
+	$("#place_of_interest .place-name").html(trim(poi.name))
 }
 
 
