@@ -11,14 +11,14 @@ body {
 	font-size: 3em;
 }
 
-#sugg {
+#place_of_interest {
 	font-family: 'Georgia', sans-serif;
 }
 
 h2.place-name {
 	margin-top: 5px;
 	font-size: 5em;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Georgia', sans-serif;
 }
 
 footer {
