@@ -13,7 +13,7 @@ function get_location(){
 function set_location(position) {
 	console.log("setting location")
 	latitude = position.coords.latitude;
-	longitude = positions.coords.longitude;
+	longitude = position.coords.longitude;
 }
 
 function location_error(err){
