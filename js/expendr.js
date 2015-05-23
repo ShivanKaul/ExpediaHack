@@ -42,8 +42,6 @@ function call_expedia() {
                                 	document.getElementById("loading").innerHTML = "You should check out: "
                                 	poi_list = map
                                 	console.log("map is " + map)
-                                	// var imageLinks = new Array(bound)
-                                	// var promises = []
                                 	for (i = 0; i < poi_list.length; i++) {
                                 		get_poi_photo(i);
                                 	}
@@ -64,7 +62,8 @@ function call_expedia() {
 
 function get_poi_photo(index){
 	var name = poi_list[index].name
-	var url = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + name
+	var nameURL = encodeURIComponent(name)
+	var url = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + nameURL
 	$.ajax({
 		url: url,
 		dataType: "jsonp",
@@ -82,39 +81,6 @@ function trim(name) {
 		var newName = name.substring(0, name.indexOf(","));
 	}
 	return newName
-}
-
-// function getImageURL(name) {
-// 	// return only once the AJAX request gets processed
-// 	url = ""
-// 	name = encodeURIComponent(name);
-// 	queryURL = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + name
-// 	$.when(ajaxRequest()).done(function(status) {
-// 		console.log("url is " + url)
-// 	})
-// 	return url
-// }
-function ajaxRequest(queryURL) {
-	return $.ajax({
-		url: queryURL,
-		dataType: "jsonp",
-		statusCode: {
-			502: function () {
-				console.log("Error 502 thrown.")
-			}
-		},
-		success: function (queryResult) {
-			console.log("inside image search")
-			var result = queryResult.responseData.results[0];
-			var localUrl = result.url
-			url = localUrl
-		},
-		error: function(statusCode, errorThrown) {
-			if (statusCode.status == 0) {
-				document.write("Whoops, something went wrong in the image search AJAX request.")
-			}
-		}
-	})
 }
 
 

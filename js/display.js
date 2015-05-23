@@ -17,7 +17,11 @@
 var poi_index = 0;
 
 function set_poi(poi) {
-	$("#place_of_interest .place-name").html(trim(poi.name))
+	var name = trim(poi.name)
+	var url = encodeURIComponent(name)
+	$("#place_of_interest .place-name").html(name)
+	var search = "http://www.yelp.ca/search?find_desc=" + url
+	$("#link-yelp").attr("href", search)
 }
 
 function next_poi(){
