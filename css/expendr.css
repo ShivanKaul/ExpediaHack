@@ -21,6 +21,10 @@ h2.place-name {
 	font-family: 'Lato', sans-serif;
 }
 
+#place_of_interest img {
+	margin-top: 50px;
+}
+
 footer {
 	padding-top: 25px;
 }
