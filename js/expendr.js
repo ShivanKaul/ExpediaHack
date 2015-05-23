@@ -10,14 +10,14 @@ function call_expedia() {
 	var queryURL = "http://terminal2.expedia.com/x/geo/features?within=" + radius + "km&lng=" + long + "&lat=" + lat + "&type=point_of_interest&apikey=" + key
 
 	$.ajax({
-			url: queryURL,
-			dataType: "json",
-			statusCode: {
-				502: function () {
-					console.log("Error 502 thrown.")
-				}
-			},
-			success: function (queryResult) {
+		url: queryURL,
+		dataType: "json",
+		statusCode: {
+			502: function () {
+				console.log("Error 502 thrown.")
+			}
+		},
+		success: function (queryResult) {
                                 // get array of all results
                                 console.log("Inside AJAX call")
                                 var results = queryResult;
@@ -32,8 +32,9 @@ function call_expedia() {
                                 		console.log(placeName, placeCoords)
                                 		map.push({name : placeName, coords : placeCoords})
                                 	}
-                                	var sugg = map[0]
+                                	var sugg = map[0].name
                                 	console.log(map)
+                                	document.getElementById("loading").innerHTML = "Found you!"
                                 	document.getElementById("sugg").innerHTML = "You should check out: " + sugg
                                 }
                                 else {
