@@ -1,5 +1,5 @@
 function initialize() {
-	var mapCanvas = document.getElementById('map-canvas');
+	var mapCanvas = document.getElementById('map');
 	var mapOptions = {
 		center: new google.maps.LatLng(latitude, longitude),
 		zoom: 8,
@@ -7,3 +7,4 @@ function initialize() {
 	}
 	var map = new google.maps.Map(mapCanvas, mapOptions);
 }
+google.maps.event.addDomListener(window, 'load', initialize);

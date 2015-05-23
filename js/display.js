@@ -96,6 +96,7 @@ function set_footer_offset() {
 		f.css("left", "auto");
 		f.css("transform", "none");
 	}
+
 }
 
 $(window).resize(function() {
