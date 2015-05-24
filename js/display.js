@@ -51,12 +51,12 @@ function image_error(image) {
 function update_poi_image() {
 	if (new_poi && current_poi){
 		if(current_poi.imageURL){
-			var image = $("#place_of_interest .img-circle")
+			var image = $("#place_of_interest .place_image")
 			image.attr("src", current_poi.imageURL);
-			$("#place_of_interest .img-circle").prop("hidden", false);
+			$("#place_of_interest .place_image").prop("hidden", false);
 			new_poi = false;
 		} else {
-			$("#place_of_interest .img-circle").prop("hidden", true);
+			$("#place_of_interest .place_image").prop("hidden", true);
 		}
 		set_footer_offset();
 	}
