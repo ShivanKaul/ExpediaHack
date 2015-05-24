@@ -43,7 +43,6 @@ function set_poi(poi) {
 }
 
 function image_error(image) {
-	image.onerror = ""; // clear onerror
 	set_poi(next_poi()) // change poi
 	return true;
 }
