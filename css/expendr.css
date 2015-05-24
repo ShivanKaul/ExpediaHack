@@ -25,6 +25,10 @@ h2.place-name {
 	max-height: 400px;
 }
 
+#map {
+	margin-top: 50px;
+}
+
 #place_of_interest a {
 	color: grey;
 }
