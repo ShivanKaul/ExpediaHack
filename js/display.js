@@ -27,6 +27,7 @@ function set_poi(poi) {
 	current_poi = poi;
 	new_poi = true;
 	setInterval('update_poi_image()', 500);
+	initialize()
 }
 
 function update_poi_image() {
