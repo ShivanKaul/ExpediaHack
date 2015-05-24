@@ -94,10 +94,15 @@ function is_prev_poi(){
 	return (poi_list > 0);
 }
 
+function show_button(){
+	$("#book-button").attr("style", "display: block;");
+}
+
 $(document).keyup(function(e) {
 	e = e||window.event;
 	if (e.keyCode == "37") { //Left Arrow
-		set_poi(prev_poi());
+		//set_poi(prev_poi());
+		show_button();
 	} else if (e.keyCode == "39") { //Right Arrow
 		set_poi(next_poi());
 	}
