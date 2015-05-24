@@ -33,13 +33,13 @@ function call_expedia() {
                                 	var elem = document.getElementById('wrapper-spinner');
                                 	elem.parentNode.removeChild(elem);
                                     document.getElementById("loading").style.color = "grey"
-                                	document.getElementById("loading").innerHTML = "You should check out: "
                                 	poi_list = map
                                 	for (i = 0; i < poi_list.length; i++) {
                                 		get_poi_photo(i);
                                 	}
                                 	initialize_map()
                                 	set_poi(poi_list[0])
+                                    document.getElementById("loading").innerHTML = "You should check out:"
 					$("#place_of_interest").prop("hidden", false)
                                 }
                                 else {
@@ -75,7 +75,10 @@ function trim(name) {
 	if (name.indexOf(",") > -1) {
 		var newName = name.substring(0, name.indexOf(","));
 	}
-	return newName
+    else {
+        return name
+    }
+    return newName
 }
 
 

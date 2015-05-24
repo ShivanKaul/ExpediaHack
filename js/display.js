@@ -18,6 +18,8 @@ var poi_index = 0;
 var current_poi = null;
 var new_poi = false;
 
+// talk = ["How about?", "Or maybe:", "Perhaps this?", "Consider going here, I hear it's great:", "This place is awesome I hear:", "My best friend loves this place:"]
+
 function set_poi(poi) {
 	var name = trim(poi.name)
 	var url = encodeURIComponent(name)
@@ -26,6 +28,7 @@ function set_poi(poi) {
 	$("#link-yelp").attr("href", search)
 	current_poi = poi;
 	new_poi = true;
+	// document.getElementById("loading").innerHTML = talk[Math.floor(Math.random() * talk.length)];
 	setInterval('update_poi_image()', 500);
 	calcRoute(poi.coords[0], poi.coords[1])
 }
