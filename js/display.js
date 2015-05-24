@@ -27,7 +27,7 @@ function set_poi(poi) {
 	current_poi = poi;
 	new_poi = true;
 	setInterval('update_poi_image()', 500);
-	initialize()
+	calcRoute(poi.coords[0], poi.coords[1])
 }
 
 function update_poi_image() {

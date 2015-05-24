@@ -11,10 +11,8 @@ function get_location(){
 } 
 
 function set_location(position) {
-	console.log("setting location")
 	latitude = position.coords.latitude;
 	longitude = position.coords.longitude;
-	console.log(latitude, longitude)
 	call_expedia()
 }
 

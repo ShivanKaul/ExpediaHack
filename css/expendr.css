@@ -27,6 +27,8 @@ h2.place-name {
 
 #map {
 	margin-top: 50px;
+	width: 500px;
+	height: 400px;
 }
 
 #place_of_interest a {
@@ -39,11 +41,6 @@ footer {
 
 footer a {
 	font-weight: bold;
-}
-
-#map {
-	width: 500px;
-	height: 400px;
 }
 
 #link-yelp:hover {

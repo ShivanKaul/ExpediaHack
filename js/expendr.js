@@ -5,8 +5,6 @@ function call_expedia() {
 	var key = API_KEY
 	var long = longitude
 	var lat = latitude
-	console.log(long)
-	console.log(lat)
 
 	var queryURL = "http://terminal2.expedia.com/x/geo/features?within=" + radius + "km&lng=" + long + "&lat=" + lat + "&type=point_of_interest&apikey=" + key
 
@@ -20,7 +18,6 @@ function call_expedia() {
 		},
 		success: function (queryResult) {
                                 // get array of all results
-                                console.log("Inside AJAX call")
                                 var results = queryResult;
                                 var numResults = results.length;
                                 var map = []
@@ -31,20 +28,16 @@ function call_expedia() {
                                 		var placeName = tuple.name
                                 		var placeCoords = tuple.position.coordinates
                                 		map.push({name : placeName, coords : placeCoords, imageURL : ""})
-                                		console.log(placeName, placeCoords)
 
                                 	}
-                                	var sugg = map[0].name
-                                	sugg = trim(sugg)
-                                	console.log(map)
                                 	var elem = document.getElementById('wrapper-spinner');
                                 	elem.parentNode.removeChild(elem);
                                 	document.getElementById("loading").innerHTML = "You should check out: "
                                 	poi_list = map
-                                	console.log("map is " + map)
                                 	for (i = 0; i < poi_list.length; i++) {
                                 		get_poi_photo(i);
                                 	}
+                                	initialize_map()
                                 	set_poi(poi_list[0])
                                 }
                                 else {
