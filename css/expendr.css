@@ -4,7 +4,14 @@ body {
 	text-align: center;
 }
 
+#helper-text-top p {
+	font-family: 'Lato', sans-serif
+}
 
+#inline {
+	font-style: bold;
+	color: grey;
+}
 #loading {
 	font-family: 'Lato', sans-serif;
 	font-size: 3em;

@@ -45,10 +45,10 @@
 		</div>
 		<div id="place_of_interest" hidden>
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+				<div id="helper-text-top" class="col-md-8 col-md-offset-2">
 					<a id="link-yelp" title="Check this place out on Yelp!"><h2 class="place-name"></h2></a>
 					<hr>
-					<p>Nay? Press right to skip. Aye? Press left to book ride with Uber. Press name of the place to learn more.</p>
+					<p><span id="inline">Hint: </span>Nay? Press right to skip. Aye? Press left to book ride with Uber. Press name of the place to learn more.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -57,7 +57,7 @@
 				</div>
 
 				<div class="col-md-2" id="button-holder">
-					<a id="book-button" hidden><img src="img/UBER_API_Badge.svg" alt="Book Ride"></a>
+					<a id="book-button" hidden><img src="img/UBER_API_Badge.svg" title="Book Ride!" alt="Book Ride"></a>
 				</div>
 				<div class="col-md-4">
 					<div id="map" class="center-block"></div>
