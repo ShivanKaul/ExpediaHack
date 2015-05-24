@@ -32,6 +32,7 @@ function call_expedia() {
                                 	}
                                 	var elem = document.getElementById('wrapper-spinner');
                                 	elem.parentNode.removeChild(elem);
+                                    document.getElementById("loading").style.color = "grey"
                                 	document.getElementById("loading").innerHTML = "You should check out: "
                                 	poi_list = map
                                 	for (i = 0; i < poi_list.length; i++) {

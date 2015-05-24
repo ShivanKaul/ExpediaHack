@@ -32,7 +32,7 @@ h2.place-name {
 }
 
 #place_of_interest a {
-	color: grey;
+	color: black;
 }
 
 footer {
@@ -44,6 +44,7 @@ footer a {
 }
 
 #link-yelp:hover {
+	color: #045FB4;
 	text-decoration: none;
 }
 
