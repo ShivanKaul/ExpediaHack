@@ -46,10 +46,16 @@ footer a {
 	font-weight: bold;
 }
 
+#link-yelp:visited {
+	text-decoration: none;
+}
+
 #link-yelp:hover {
 	color: #045FB4;
 	text-decoration: none;
 }
+
+
 
 /*Spinner*/
 .spinner {

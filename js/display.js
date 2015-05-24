@@ -35,6 +35,7 @@ function set_poi(poi) {
 	new_poi = true;
 	url_for_deeplinking = "https://m.uber.com/sign-up?client_id=" + client_id + "&dropoff_latitude=" + poi.coords[1] + "&dropoff_longitude=" + poi.coords[0] + "&pickup_latitude=" + latitude + "&dropoff_longitude=" + longitude
 	$("#book-button").attr("href", url_for_deeplinking);
+	$("#book-button").attr("target", "_blank");
 	// document.getElementById("loading").innerHTML = talk[Math.floor(Math.random() * talk.length)];
 	if (!firstTime) {
 		var elem = document.getElementById('loading');
