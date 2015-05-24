@@ -22,11 +22,12 @@
 // talk = ["How about?", "Or maybe:", "Perhaps this?", "Consider going here, I hear it's great:", "This place is awesome I hear:", "My best friend loves this place:"]
 
 function set_poi(poi) {
-	var name = trim(poi.name)
-	var url = encodeURIComponent(name)
-	$("#place_of_interest .place-name").html(name)
-	var search = "http://www.yelp.ca/search?find_desc=" + url
-	$("#link-yelp").attr("href", search)
+	$("#place_of_interest").fadeIn(300);
+	var name = trim(poi.name);
+	var url = encodeURIComponent(name);
+	$("#place_of_interest .place-name").html(name);
+	var search = "http://www.yelp.ca/search?find_desc=" + url;
+	$("#link-yelp").attr("href", search);
 	current_poi = poi;
 	new_poi = true;
 	// document.getElementById("loading").innerHTML = talk[Math.floor(Math.random() * talk.length)];
@@ -94,7 +95,7 @@ function is_prev_poi(){
 }
 
 function show_button(){
-	$("#book-button").attr("style", "display: block;");
+	$("#book-button").fadeIn();
 }
 
 $(document).keyup(function(e) {
@@ -103,7 +104,9 @@ $(document).keyup(function(e) {
 		//set_poi(prev_poi());
 		show_button();
 	} else if (e.keyCode == "39") { //Right Arrow
-		set_poi(next_poi());
+		$("#place_of_interest").fadeOut( 300, function() {
+			set_poi(next_poi());
+		});
 	}
 });
 

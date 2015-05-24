@@ -39,8 +39,10 @@ function call_expedia() {
                                 	}
                                 	initialize_map()
                                 	set_poi(poi_list[0])
-                                    document.getElementById("loading").innerHTML = "You should check out:"
-					$("#place_of_interest").prop("hidden", false)
+					$("#helper-loading").fadeOut(300, function(){
+						$("#loading").text("You should check out:")
+						$("#helper-loading").fadeIn(300)
+					});
                                 }
                                 else {
                                 	document.write("Couldn't find any results! You live in a boring town, sorry.")
