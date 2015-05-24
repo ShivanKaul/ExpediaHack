@@ -14,9 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-var poi_index = 0;
-var current_poi = null;
-var new_poi = false;
+ var poi_index = 0;
+ var current_poi = null;
+ var new_poi = false;
+ var firstTime = true;
 
 // talk = ["How about?", "Or maybe:", "Perhaps this?", "Consider going here, I hear it's great:", "This place is awesome I hear:", "My best friend loves this place:"]
 
@@ -29,14 +30,29 @@ function set_poi(poi) {
 	current_poi = poi;
 	new_poi = true;
 	// document.getElementById("loading").innerHTML = talk[Math.floor(Math.random() * talk.length)];
+	if (!firstTime) {
+		var elem = document.getElementById('loading');
+		if (elem != undefined) {
+			elem.parentNode.removeChild(elem);
+		}
+	}
+	
+	firstTime = false
 	setInterval('update_poi_image()', 500);
 	calcRoute(poi.coords[0], poi.coords[1])
+}
+
+function image_error(image) {
+	image.onerror = ""; // clear onerror
+	set_poi(next_poi()) // change poi
+	return true;
 }
 
 function update_poi_image() {
 	if (new_poi && current_poi){
 		if(current_poi.imageURL){
-			$("#place_of_interest .img-circle").attr("src", current_poi.imageURL);
+			var image = $("#place_of_interest .img-circle")
+			image.attr("src", current_poi.imageURL);
 			$("#place_of_interest .img-circle").prop("hidden", false);
 			new_poi = false;
 		} else {
