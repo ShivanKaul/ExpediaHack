@@ -18,6 +18,7 @@
  var current_poi = null;
  var new_poi = false;
  var firstTime = true;
+ var buttonOn = false;
 
 // talk = ["How about?", "Or maybe:", "Perhaps this?", "Consider going here, I hear it's great:", "This place is awesome I hear:", "My best friend loves this place:"]
 
@@ -99,6 +100,7 @@ function show_button(){
 	console.log("Uber Button offset is: " + offset);
 	$("#book-button img").css("margin-top", offset);
 	$("#book-button").fadeIn();
+	buttonOn = true;
 }
 
 $(document).keyup(function(e) {
@@ -107,6 +109,10 @@ $(document).keyup(function(e) {
 		//set_poi(prev_poi());
 		show_button();
 	} else if (e.keyCode == "39") { //Right Arrow
+		if (buttonOn){
+			$("#book-button").fadeOut(300);
+			buttonOn = false;
+		}
 		$("#place_of_interest").fadeOut( 300, function() {
 			set_poi(next_poi());
 		});
