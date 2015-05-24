@@ -20,14 +20,15 @@ h2.place-name {
 	font-family: 'Georgia', sans-serif;
 }
 
-#place_of_interest img {
+#place_of_interest img.place_image {
 	margin-top: 50px;
-	max-height: 400px;
+	height: 400px;
+	width: 400px;
 }
 
 #map {
 	margin-top: 50px;
-	width: 500px;
+	width: 400px;
 	height: 400px;
 }
 
