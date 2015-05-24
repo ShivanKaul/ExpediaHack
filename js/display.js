@@ -98,6 +98,9 @@ function is_prev_poi(){
 }
 
 function show_button(){
+	var offset = 50+200 - Math.floor($("#book-button").height()/2);
+	console.log("Uber Button offset is: " + offset);
+	$("#book-button").css("margin-top", offset);
 	$("#book-button").fadeIn();
 }
 
