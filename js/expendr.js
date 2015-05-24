@@ -39,6 +39,7 @@ function call_expedia() {
                                 	}
                                 	initialize_map()
                                 	set_poi(poi_list[0])
+					$("#place_of_interest").prop("hidden", false)
                                 }
                                 else {
                                 	document.write("Couldn't find any results! You live in a boring town, sorry.")
