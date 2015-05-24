@@ -30,6 +30,7 @@ function set_poi(poi) {
 	$("#place_of_interest .place-name").html(name);
 	var search = "http://www.yelp.ca/search?find_desc=" + url;
 	$("#link-yelp").attr("href", search);
+	$("#link-yelp").attr("target", "_blank");
 	current_poi = poi;
 	new_poi = true;
 	url_for_deeplinking = "https://m.uber.com/sign-up?client_id=" + client_id + "&dropoff_latitude=" + poi.coords[1] + "&dropoff_longitude=" + poi.coords[0] + "&pickup_latitude=" + latitude + "&dropoff_longitude=" + longitude

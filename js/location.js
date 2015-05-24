@@ -3,7 +3,6 @@ longitude = 0
 
 function get_location(){
 	if ( "geolocation" in navigator) {
-		console.log("if...")
 		navigator.geolocation.getCurrentPosition(set_location, location_error)
 	} else {
 		add_error("No Location", "Your current browser does not support geolocation. This app will not work.")
