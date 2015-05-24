@@ -95,6 +95,8 @@ function is_prev_poi(){
 }
 
 function show_button(){
+	var offset = 50+200 - Math.floor($("#book-button").height()/2);
+	$("#book-button").css("margin-top", offset);
 	$("#book-button").fadeIn();
 }
 
