@@ -33,11 +33,11 @@ function set_poi(poi) {
 function update_poi_image() {
 	if (new_poi && current_poi){
 		if(current_poi.imageURL){
-			$("#place_of_interest img").attr("src", current_poi.imageURL);
-			$("#place_of_interest img").prop("hidden", false);
+			$("#place_of_interest .img-circle").attr("src", current_poi.imageURL);
+			$("#place_of_interest .img-circle").prop("hidden", false);
 			new_poi = false;
 		} else {
-			$("#place_of_interest img").prop("hidden", true);
+			$("#place_of_interest .img-circle").prop("hidden", true);
 		}
 		set_footer_offset();
 	}
