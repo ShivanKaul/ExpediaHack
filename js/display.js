@@ -18,7 +18,6 @@
  var current_poi = null;
  var new_poi = false;
  var firstTime = true;
- client_id = CLIENT_ID
  var buttonOn = false;
 
 // talk = ["How about?", "Or maybe:", "Perhaps this?", "Consider going here, I hear it's great:", "This place is awesome I hear:", "My best friend loves this place:"]
@@ -33,7 +32,7 @@ function set_poi(poi) {
 	$("#link-yelp").attr("target", "_blank");
 	current_poi = poi;
 	new_poi = true;
-	url_for_deeplinking = "https://m.uber.com/sign-up?client_id=" + client_id + "&dropoff_latitude=" + poi.coords[1] + "&dropoff_longitude=" + poi.coords[0] + "&pickup_latitude=" + latitude + "&dropoff_longitude=" + longitude
+	url_for_deeplinking = "https://m.uber.com/sign-up?dropoff_latitude=" + poi.coords[1] + "&dropoff_longitude=" + poi.coords[0] + "&pickup_latitude=" + latitude + "&dropoff_longitude=" + longitude
 	$("#book-button").attr("href", url_for_deeplinking);
 	$("#book-button").attr("target", "_blank");
 	// document.getElementById("loading").innerHTML = talk[Math.floor(Math.random() * talk.length)];
